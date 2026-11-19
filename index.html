@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SPOT2GO</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="map" aria-label="Map"></div>
+
+  <!-- Floating panel: search + ride options -->
+  <aside id="panel">
+    <div class="brand">SPOT2GO</div>
+
+    <div class="search">
+      <input id="search" type="text" autocomplete="off"
+             placeholder="Search a place, or paste a Google Maps link">
+      <button id="searchBtn" aria-label="Search">Go</button>
+      <ul id="suggestions" hidden></ul>
+    </div>
+
+    <div class="pick" role="group" aria-label="What do you want to set by tapping the map?">
+      <button id="modeDrop" class="active">Set destination</button>
+      <button id="modePickup">Set pickup</button>
+    </div>
+
+    <div class="points">
+      <div class="point"><span class="dot pickup"></span>
+        <div><b>Pickup</b><span id="pickupText">Not set (Uber will use your current location)</span></div></div>
+      <div class="point"><span class="dot drop"></span>
+        <div><b>Destination</b><span id="dropText">Tap the map, search, or paste a link</span></div></div>
+    </div>
+
+    <div id="coords" hidden>
+      <code id="coordsText"></code>
+      <button id="copyCoords">Copy</button>
+    </div>
+    <div id="routeInfo" hidden></div>
+
+    <div id="rides" hidden>
+      <a id="uberBtn" class="ride" target="_blank" rel="noopener">
+        <span class="logo uber">U</span>
+        <span><b>Open in Uber</b><small>Destination filled in for you</small></span>
+      </a>
+      <button id="rapidoBtn" class="ride">
+        <span class="logo rapido">R</span>
+        <span><b>Copy coordinates &amp; open Rapido</b><small>Rapido has no public destination link yet. Paste the coordinates in its search box.</small></span>
+      </button>
+    </div>
+
+    <button id="locate" class="ghost">Use my current location as pickup</button>
+  </aside>
+
+  <div id="toast" role="status"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
