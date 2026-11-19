@@ -1,4 +1,4 @@
-# RideBridge
+# spot2go
 
 Pick or paste a destination, see its latitude/longitude, then open Uber with the drop-off already filled in. For Rapido, the coordinates are copied so you can paste them.
 
